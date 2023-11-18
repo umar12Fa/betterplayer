@@ -1,6 +1,7 @@
 import 'package:better_player/better_player.dart';
 import 'package:better_player_example/model/video_list_data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class VideoListWidget extends StatefulWidget {
   final VideoListData? videoListData;
@@ -59,6 +60,9 @@ class _VideoListWidgetState extends State<VideoListWidget> {
                       bufferForPlaybackAfterRebufferMs: 2000),
                 ),
                 configuration: BetterPlayerConfiguration(
+                  deviceOrientationsAfterFullScreen: [
+                    DeviceOrientation.portraitUp
+                  ],
                     autoPlay: false, aspectRatio: 1, handleLifecycle: true),
                 //key: Key(videoListData.hashCode.toString()),
                 playFraction: 0.8,
